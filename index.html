@@ -500,6 +500,75 @@ p{margin:0 0 1.15rem;color:#2A2E36}
 </footer>
 
 <script>
+/* The hero loop stops for reasons the page never hears about: a backgrounded
+   tab, iOS Low Power Mode, a stalled decode, or the hero scrolling out of
+   view. Nothing restarts it on its own, so watch for it and start it again. */
+(function(){
+  var v = document.querySelector('.hero video');
+  if (!v) return;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  var onscreen = true;
+
+  function wanted(){ return onscreen && !document.hidden && !reduce.matches; }
+  function kick(){
+    if (!wanted() || !v.paused) return;
+    var p = v.play();
+    if (p && p.catch) p.catch(function(){});
+  }
+
+  ['pause','stalled','suspend','waiting'].forEach(function(e){
+    v.addEventListener(e, function(){ setTimeout(kick, 150); });
+  });
+  v.addEventListener('ended', function(){ v.currentTime = 0; kick(); });
+
+  /* Wrap a breath before the end rather than relying on the loop attribute.
+     The last frames are inside the crossfade, so the seek is invisible, and
+     it means the video never reaches the point where it can pin and stop. */
+  v.addEventListener('timeupdate', function(){
+    if (v.duration && v.duration - v.currentTime < 0.12) v.currentTime = 0;
+  });
+
+  document.addEventListener('visibilitychange', kick);
+  addEventListener('pageshow', kick);
+  addEventListener('focus', kick);
+
+  /* Low Power Mode refuses autoplay outright until the reader touches something */
+  ['pointerdown','touchstart','keydown'].forEach(function(e){
+    addEventListener(e, kick, {passive:true});
+  });
+
+  /* stop decoding once the hero is scrolled past, and pick it up on the way back */
+  if (window.IntersectionObserver){
+    new IntersectionObserver(function(entries){
+      onscreen = entries[0].isIntersecting;
+      if (onscreen) kick(); else if (!v.paused) v.pause();
+    }, {threshold: 0}).observe(v);
+  }
+
+  /* A looping video can reach the end and simply stop: currentTime pins at the
+     duration while the element still reports itself as playing, so neither
+     'pause' nor 'ended' ever fires and nothing above catches it. Watch the
+     clock instead, and wrap it by hand when it stops moving. */
+  var lastT = 0, stalled = 0;
+  setInterval(function(){
+    if (!wanted() || v.paused) { lastT = v.currentTime; stalled = 0; kick(); return; }
+    if (v.readyState >= 2 && Math.abs(v.currentTime - lastT) < 0.01) {
+      if (++stalled >= 2) {
+        stalled = 0;
+        try { v.currentTime = 0; } catch (e) {}
+        kick();
+      }
+    } else {
+      stalled = 0;
+    }
+    lastT = v.currentTime;
+  }, 500);
+
+  kick();
+})();
+</script>
+
+<script>
 (function(){
   var tabs = Array.prototype.slice.call(document.querySelectorAll('[role=tab]'));
   var panels = tabs.map(function(t){ return document.getElementById(t.getAttribute('aria-controls')); });
