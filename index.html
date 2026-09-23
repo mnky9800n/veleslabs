@@ -68,8 +68,8 @@ body{
 
 /* the rig, sitting on the horizon */
 .rig{
-  position:absolute;z-index:2;right:7vw;top:48.5%;
-  width:clamp(140px,21vw,300px);height:auto;
+  position:absolute;z-index:2;right:9vw;top:24.7%;
+  width:min(15vw,32svh,240px);height:auto;
   transform:translateY(-100%);
   opacity:.94;
 }
@@ -78,9 +78,9 @@ body{
 
 /* the jazz stroke: the one loud moment on this page */
 .brush{
-  position:absolute;z-index:1;left:50%;bottom:clamp(74px,12vh,150px);
-  width:min(1320px,128vw);
-  transform:translateX(-50%) rotate(-2.2deg);
+  position:absolute;z-index:1;left:50%;top:18%;
+  width:128vw;height:28%;
+  transform:translateX(-50%) rotate(-1.2deg);
   pointer-events:none;
 }
 .hero-head{position:relative;z-index:2;padding:0 24px clamp(48px,9vh,96px);max-width:var(--wrap);margin:0 auto;width:100%}
@@ -250,9 +250,8 @@ p{margin:0 0 1.15rem;color:#2A2E36}
     -webkit-mask-image:linear-gradient(to right,#000 88%,transparent 100%);
     mask-image:linear-gradient(to right,#000 88%,transparent 100%);
   }
-  .rig{right:5vw;top:46%;width:clamp(120px,27vw,200px)}
-  /* keep the stroke clear of the wordmark on narrow screens */
-  .brush{width:150vw;bottom:300px}
+  .rig{right:5vw;top:44%;width:clamp(120px,27vw,200px)}
+  .brush{width:150vw;top:36%;height:20%}
   .facts div{border-right:0;border-bottom:1px solid #D6D1C6}
   .facts div:last-child{border-bottom:0}
   .foot-in{grid-template-columns:1fr;gap:34px;align-items:start}
@@ -308,7 +307,7 @@ p{margin:0 0 1.15rem;color:#2A2E36}
     <circle class="beacon" cx="156" cy="10" r="4.5" fill="#9B4FCB"/>
   </svg>
 
-  <svg class="brush" viewBox="0 0 1200 240" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <svg class="brush" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
     <!-- teal swoosh: thick through the middle, tapering out at both ends -->
     <path d="M14,140 C150,52 300,168 470,104 C640,40 850,74 1186,58
              L1186,74 C850,104 640,80 470,150 C300,220 150,104 14,156 Z"
