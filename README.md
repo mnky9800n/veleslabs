@@ -4,17 +4,14 @@ The Veles Labs website. Static HTML, no build step, served by GitHub Pages at
 <https://veleslabs.ai>.
 
 ```
-index.html                     the website: hero, three tabs, contact
-onepager.html                  the investor one-pager, not linked from the site
-veleslabs-onepager.pdf         print of onepager.html, one A4 page
+index.html                     the website: hero, four tabs, contact
 assets/storm.mp4               hero background loop
 assets/storm-poster.jpg        first frame, shown before the video loads
 assets/og.png                  social card, a screenshot of the hero
 assets/logo.png, favicon.png   marks
 assets/expert-analytics.png    partner logo, on the market tab
 assets/*.jpg                   headshots
-assets/jennifer-schematic.svg  cross-section, used by onepager.html only
-tools/make_schematic.py        draws that cross-section
+assets/veles-mark.png          the VL mark at 512px
 ```
 
 ## The website
@@ -81,28 +78,6 @@ legs meet the horizon in the footage. Change the clip and you will need to move
   --window-size=1200,630 --force-device-scale-factor=1 \
   --screenshot="$PWD/assets/og.png" "file://$PWD/index.html"
 ```
-
-## The one-pager
-
-`onepager.html` is the investor sheet. Nothing on the website links to it, but
-it is still served, so treat the URL as shareable rather than private.
-
-To rebuild the PDF after editing it:
-
-```sh
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless --disable-gpu --virtual-time-budget=8000 --no-pdf-header-footer \
-  --print-to-pdf="$PWD/veleslabs-onepager.pdf" "$PWD/onepager.html"
-```
-
-It must come out as one A4 page. If it spills to two, lower the root font size
-in the `@media print` block. It currently sits at 14px with the figure at 84%
-width, which leaves very little slack, so adding a bullet or a person will push
-it over.
-
-The cross-section on that page is generated. Edit the geometry or colours in
-`tools/make_schematic.py`, then `uv run tools/make_schematic.py`. That rewrites
-`assets/jennifer-schematic.svg` and the inline `<svg>` in `onepager.html`.
 
 ## Hosting
 
