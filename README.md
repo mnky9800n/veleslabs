@@ -7,7 +7,7 @@ The Veles Labs website. Static HTML, no build step, served by GitHub Pages at
 index.html                     the website: hero, four tabs, contact
 assets/storm.mp4               hero background loop
 assets/storm-poster.jpg        first frame, shown before the video loads
-assets/og.png                  social card, a screenshot of the hero
+assets/og-2.png                social card, a screenshot of the hero
 assets/logo.png, favicon.png   marks
 assets/expert-analytics.png    partner logo, on the market tab
 assets/*.jpg                   headshots
@@ -70,13 +70,15 @@ legs meet the horizon in the footage. Change the clip and you will need to move
 
 ### Rebuilding the social card
 
-`assets/og.png` is just a screenshot of the hero at card size:
+`assets/og-2.png` is just a screenshot of the hero at card size. The filename
+carries a number: bump it whenever the card changes, because link previews are
+cached by every chat app and a reused filename keeps serving the old picture.
 
 ```sh
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
   --headless --disable-gpu --virtual-time-budget=9000 --hide-scrollbars \
   --window-size=1200,630 --force-device-scale-factor=1 \
-  --screenshot="$PWD/assets/og.png" "file://$PWD/index.html"
+  --screenshot="$PWD/assets/og-2.png" "file://$PWD/index.html"
 ```
 
 ## Hosting
