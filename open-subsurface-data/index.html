@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open Subsurface Data | Veles Labs</title>
-<meta name="description" content="A documented collection of openly licensed subsurface data, prepared for machine learning. The first release is 3D post-stack seismic from USGS NAMSS and South Australia's SARIG.">
+<meta name="description" content="A documented collection of openly licensed subsurface data from public archives, prepared for machine learning. The first release is 3D post-stack seismic.">
 <link rel="icon" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="icon" sizes="128x128" href="../assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,15 +61,20 @@ dd{margin:0;color:#2A2E36}
   <hr class="rule">
 
   <h2>Release 1: 3D post-stack seismic</h2>
-  <p>Every openly licensed, migrated 3D post-stack volume we can find in two government archives. Today these sit in more than a thousand separate zip files with inconsistent header layouts and little metadata. We collect them, check them, and describe each one.</p>
+  <p>Every migrated 3D post-stack volume we can find that is free to download and free to pass on. Today these sit in thousands of separate zip files across national archives, with inconsistent header layouts and little metadata. We collect them, check them, and describe each one.</p>
   <div class="tbl"><table>
-    <thead><tr><th>Source</th><th>Where</th><th>Volumes</th><th>License</th></tr></thead>
+    <thead><tr><th>Source</th><th>Where</th><th>Volumes</th><th>Size</th><th>License</th></tr></thead>
     <tbody>
-      <tr><td><a href="https://walrus.wr.usgs.gov/namss/">USGS National Archive of Marine Seismic Surveys (NAMSS)</a></td><td>US offshore, mostly the Gulf of Mexico</td><td>about 1,000</td><td>Public domain (US government work)</td></tr>
-      <tr><td><a href="https://catalog.sarig.sa.gov.au/">SARIG, Government of South Australia</a></td><td>South Australia, mostly the Cooper Basin</td><td>about 160</td><td>CC BY 4.0</td></tr>
+      <tr><td><a href="https://walrus.wr.usgs.gov/namss/">USGS National Archive of Marine Seismic Surveys (NAMSS)</a></td><td>US offshore, mostly the Gulf of Mexico</td><td>about 1,000 surveys</td><td>32 TB</td><td>Public domain (US government work)</td></tr>
+      <tr><td><a href="https://www.nlog.nl/">NLOG, Netherlands</a></td><td>Dutch North Sea and onshore Netherlands</td><td>324 surveys</td><td>6.4 TB</td><td>Free to use and pass on with credit to NLOG</td></tr>
+      <tr><td><a href="https://catalog.sarig.sa.gov.au/">SARIG, Government of South Australia</a></td><td>South Australia, mostly the Cooper Basin</td><td>about 160</td><td>1.8 TB</td><td>CC BY 4.0</td></tr>
+      <tr><td>Poseidon 3D (Geoscience Australia open file)</td><td>Browse Basin, NW Shelf, Australia</td><td>full, near, mid and far stacks</td><td>0.4 TB</td><td>CC BY 3.0 AU</td></tr>
+      <tr><td>Smaller open cubes: PANGAEA P-Cable surveys, UiT DataverseNO, USGS Point Sal, Utah FORGE, Natural Resources Canada, Dutch F3, Sleipner (CO2DataShare)</td><td>Norway, Taiwan, Black Sea, Aegean, California, Utah, Canada, North Sea</td><td>about 20</td><td>0.3 TB</td><td>CC BY, CC0, public domain, OGL-Canada, CC BY-SA; Sleipner under its own CC BY-based license</td></tr>
+      <tr><td><a href="https://nopims.dmp.wa.gov.au/">NOPIMS, Geoscience Australia and NOPTA</a></td><td>Offshore Australia</td><td>234 surveys with download links</td><td>25.6 TB</td><td>Being confirmed before release</td></tr>
+      <tr><td><a href="https://wapims.dmp.wa.gov.au/">WAPIMS, Western Australia</a></td><td>Canning, Perth, Carnarvon, Browse and Bonaparte basins</td><td>75 surveys</td><td>to be measured</td><td>Being confirmed before release</td></tr>
     </tbody>
   </table></div>
-  <p>About 28 TB of SEG-Y in all. One full stack per survey is the core set; partial angle stacks and second migrations may follow. Velocity models, pre-stack gathers and 2D lines are not part of this release.</p>
+  <p>About 41 TB of SEG-Y that is clear to publish today, and about 70 TB once the two Australian licenses are confirmed. We include full stacks, partial angle stacks and second migrations. Velocity models and pre-stack gathers are not part of this release. Sources that only allow non-commercial use or limit passing data on are left out.</p>
 
   <h2>What we add</h2>
   <ul>
@@ -80,7 +85,7 @@ dd{margin:0;color:#2A2E36}
   </ul>
 
   <h2>Layout</h2>
-<pre>&lt;source&gt;/&lt;survey&gt;/            namss/, sarig/, sarig-2d-cubed/
+<pre>&lt;source&gt;/&lt;survey&gt;/            one folder per source archive: namss/, nlog/, sarig/, ...
     &lt;files as named in the source archive&gt;
     metadata.json
 manifest.csv
@@ -90,7 +95,7 @@ log/files.csv                    every file: size, CRC32, SHA-256, source URL</p
   <p>Pretraining and testing seismic foundation models, comparing how models transfer between basins, and seismic interpretation research. We will publish a notebook that reads a volume straight from cloud storage and runs a pretrained seismic foundation model on it.</p>
 
   <h2>Coming later</h2>
-  <p>Open well logs and 2D seismic lines from national archives, under the same checks and metadata.</p>
+  <p>2D seismic, starting with the 582 NAMSS 2D surveys, and open well logs from national archives, under the same checks and metadata.</p>
 
   <h2>Credit the sources</h2>
   <dl>
@@ -98,6 +103,8 @@ log/files.csv                    every file: size, CRC32, SHA-256, source URL</p
     <dd>Triezenberg, P.J., Hart, P.E., and Childs, J.R., 2016, National Archive of Marine Seismic Surveys (NAMSS): U.S. Geological Survey data release, <a href="https://doi.org/10.5066/F7930R7P">doi:10.5066/F7930R7P</a>. Data acquired under BOEM permits and released after 25 years.</dd>
     <dt>SARIG</dt>
     <dd>Department for Energy and Mining, Government of South Australia. Keep the disclaimer file that ships with each volume.</dd>
+    <dt>Every other source</dt>
+    <dd>Each volume's <code>metadata.json</code> names its source, license and the credit line the source asks for.</dd>
   </dl>
 
   <h2>Contact</h2>
