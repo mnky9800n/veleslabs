@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Subsurface Data | Veles Labs</title>
+<meta name="description" content="A documented collection of openly licensed subsurface data, prepared for machine learning. The first release is 3D post-stack seismic from USGS NAMSS and South Australia's SARIG.">
+<link rel="icon" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="icon" sizes="128x128" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F5F0; --paper-2:#EFEBE2; --ink:#14161A; --ink-2:#565C66;
+  --teal:#00A9A5; --teal-deep:#04635F; --purple:#6E3FA3; --violet:#9B4FCB; --night:#0A0E12;
+  --wrap:900px; color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+a{color:var(--teal-deep)}
+.top{background:var(--night);color:var(--paper)}
+.top .wrap{display:flex;align-items:center;gap:12px;padding-top:14px;padding-bottom:14px}
+.top a{color:var(--paper);text-decoration:none;display:flex;align-items:center;gap:10px;font-variation-settings:'wght' 700}
+.top img{width:28px;height:28px}
+main{padding:clamp(40px,7vw,80px) 0 clamp(40px,6vw,72px)}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-deep);font-variation-settings:'wght' 700;margin:0 0 .6rem}
+h1{margin:0 0 1.2rem;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.02;letter-spacing:-.022em;font-variation-settings:'wdth' 104,'wght' 800;text-wrap:balance}
+h2{margin:2.8rem 0 .9rem;font-size:clamp(1.35rem,2.6vw,1.75rem);line-height:1.15;letter-spacing:-.01em;font-variation-settings:'wdth' 100,'wght' 760}
+.lede{font-size:clamp(1.1rem,1.7vw,1.32rem);line-height:1.5;max-width:60ch}
+p,li{color:#2A2E36;max-width:66ch}
+.rule{height:5px;border:0;margin:2.2rem 0;max-width:220px;background:linear-gradient(to right,var(--teal) 0 50%,var(--purple) 50% 100%)}
+.tbl{overflow-x:auto;margin:1rem 0 .5rem}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 14px 9px 0;border-bottom:1px solid #D6D1C6;vertical-align:top}
+th{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-variation-settings:'wght' 700;border-bottom:2px solid var(--ink)}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88em}
+pre{background:var(--paper-2);padding:14px 16px;border-radius:3px;overflow-x:auto;line-height:1.5}
+.status{display:inline-block;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;font-variation-settings:'wght' 700;
+  color:var(--purple);border:1.5px solid var(--purple);border-radius:3px;padding:2px 8px;margin-bottom:1rem}
+dl{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:6px 20px;margin:1rem 0}
+dt{font-variation-settings:'wght' 650}
+dd{margin:0;color:#2A2E36}
+@media (max-width:620px){dl{grid-template-columns:minmax(0,1fr)} dd{margin-bottom:8px}}
+.foot{background:var(--night);color:#AEB6BE;font-size:.9rem}
+.foot .wrap{padding-top:28px;padding-bottom:28px}
+.foot a{color:var(--paper)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="/"><img src="../assets/favicon.png" alt="">Veles Labs</a></div></div>
+
+<main><div class="wrap">
+  <p class="eyebrow">Open data</p>
+  <h1>Open Subsurface Data</h1>
+  <span class="status">In preparation</span>
+  <p class="lede">A documented collection of openly licensed subsurface data, gathered from public archives and prepared for machine learning. The first release is 3D post-stack seismic.</p>
+  <hr class="rule">
+
+  <h2>Release 1: 3D post-stack seismic</h2>
+  <p>Every openly licensed, migrated 3D post-stack volume we can find in two government archives. Today these sit in more than a thousand separate zip files with inconsistent header layouts and little metadata. We collect them, check them, and describe each one.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Where</th><th>Volumes</th><th>License</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://walrus.wr.usgs.gov/namss/">USGS National Archive of Marine Seismic Surveys (NAMSS)</a></td><td>US offshore, mostly the Gulf of Mexico</td><td>about 1,000</td><td>Public domain (US government work)</td></tr>
+      <tr><td><a href="https://catalog.sarig.sa.gov.au/">SARIG, Government of South Australia</a></td><td>South Australia, mostly the Cooper Basin</td><td>about 160</td><td>CC BY 4.0</td></tr>
+    </tbody>
+  </table></div>
+  <p>About 28 TB of SEG-Y in all. One full stack per survey is the core set; partial angle stacks and second migrations may follow. Velocity models, pre-stack gathers and 2D lines are not part of this release.</p>
+
+  <h2>What we add</h2>
+  <ul>
+    <li><b>Checked copies.</b> Every file is verified against the checksum stored in its source archive and kept byte for byte, with a SHA-256 recorded for each.</li>
+    <li><b>Per-volume metadata.</b> A <code>metadata.json</code> beside each volume gives inline and crossline ranges, number of samples, sample interval, the trace header byte locations that actually work, the coordinate reference system where the headers state one, and any header problems found.</li>
+    <li><b>A manifest.</b> One CSV row per volume with source, survey, location, stack type, size, license, download URL and checksums.</li>
+    <li><b>A cloud-ready copy.</b> Each volume will also be offered in <a href="https://github.com/TGSAI/mdio-python">MDIO</a> (chunked Zarr), so a slice can be read without fetching the whole file. The SEG-Y originals stay as published.</li>
+  </ul>
+
+  <h2>Layout</h2>
+<pre>&lt;source&gt;/&lt;survey&gt;/            namss/, sarig/, sarig-2d-cubed/
+    &lt;files as named in the source archive&gt;
+    metadata.json
+manifest.csv
+log/files.csv                    every file: size, CRC32, SHA-256, source URL</pre>
+
+  <h2>Uses</h2>
+  <p>Pretraining and testing seismic foundation models, comparing how models transfer between basins, and seismic interpretation research. We will publish a notebook that reads a volume straight from cloud storage and runs a pretrained seismic foundation model on it.</p>
+
+  <h2>Coming later</h2>
+  <p>Open well logs and 2D seismic lines from national archives, under the same checks and metadata.</p>
+
+  <h2>Credit the sources</h2>
+  <dl>
+    <dt>NAMSS</dt>
+    <dd>Triezenberg, P.J., Hart, P.E., and Childs, J.R., 2016, National Archive of Marine Seismic Surveys (NAMSS): U.S. Geological Survey data release, <a href="https://doi.org/10.5066/F7930R7P">doi:10.5066/F7930R7P</a>. Data acquired under BOEM permits and released after 25 years.</dd>
+    <dt>SARIG</dt>
+    <dd>Department for Energy and Mining, Government of South Australia. Keep the disclaimer file that ships with each volume.</dd>
+  </dl>
+
+  <h2>Contact</h2>
+  <p>Questions, corrections or a source we should add: <a href="mailto:john@veleslabs.ai">john@veleslabs.ai</a></p>
+</div></main>
+
+<footer class="foot"><div class="wrap">&copy; 2026 Veles Labs &middot; Oslo, Norway and New York City</div></footer>
+</body>
+</html>
