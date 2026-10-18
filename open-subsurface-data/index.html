@@ -76,6 +76,15 @@ dd{margin:0;color:#2A2E36}
   </table></div>
   <p>About 70 TB of SEG-Y in all, plus the WAPIMS volumes still to be measured. We include full stacks, partial angle stacks and second migrations. Velocity models and pre-stack gathers are not part of this release. Sources that only allow non-commercial use or limit passing data on are left out.</p>
 
+  <h2>Progress</h2>
+  <p>We are downloading from the original archives now. As of 19 October 2026, 88 NAMSS surveys (1.5 TB), 116 SARIG surveys (0.6 TB) and 12 Cooper Basin 2D-cubed volumes (0.3 TB) are checked and stored: about 2.4 TB of SEG-Y.</p>
+
+  <h2>Why</h2>
+  <p>The seismic foundation models that transfer best today learned from Norwegian shelf data held in DISKOS. That data is often called free. In practice a company outside oil production pays about NOK 190,000 (about USD 20,000) a year for membership, plus data fees, and commits to three years. Released data carry no open license. No open training set of that size exists. This collection is a start on one.</p>
+
+  <h2>Wells tied to the seismic</h2>
+  <p>For the Gulf of Mexico we add 15,136 exploration wells from public tables of the Bureau of Ocean Energy Management, each with its result. Of these, 4,895 were drilled inside a NAMSS 3D survey after it was shot, and 1,233 of those found pay. Digital logs for 1,853 of the 4,895 wells (8,031 files, about 33 GB) are requested from the Bureau of Safety and Environmental Enforcement. All are public US government releases.</p>
+
   <h2>What we add</h2>
   <ul>
     <li><b>Checked copies.</b> Every file is verified against the checksum stored in its source archive and kept byte for byte, with a SHA-256 recorded for each.</li>
@@ -94,8 +103,14 @@ log/files.csv                    every file: size, CRC32, SHA-256, source URL</p
   <h2>Uses</h2>
   <p>Pretraining and testing seismic foundation models, comparing how models transfer between basins, and seismic interpretation research. We will publish a notebook that reads a volume straight from cloud storage and runs a pretrained seismic foundation model on it.</p>
 
+  <h2>Get it yourself</h2>
+  <p>A command-line tool and a Claude skill will fetch any part of the collection from the original archives, check every file and write the same metadata. Both will be on GitHub with the data paper.</p>
+
+  <h2>Data paper</h2>
+  <p>A paper describing the collection is in preparation for <i>Earth System Science Data</i>. The index, metadata and well tables will get a DOI on Zenodo.</p>
+
   <h2>Coming later</h2>
-  <p>2D seismic, starting with the 582 NAMSS 2D surveys, and open well logs from national archives, under the same checks and metadata.</p>
+  <p>2D seismic, starting with the 582 NAMSS 2D surveys, and open well logs from other national archives, under the same checks and metadata.</p>
 
   <h2>Credit the sources</h2>
   <dl>
