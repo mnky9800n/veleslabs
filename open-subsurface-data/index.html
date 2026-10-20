@@ -67,17 +67,24 @@ dd{margin:0;color:#2A2E36}
     <tbody>
       <tr><td><a href="https://walrus.wr.usgs.gov/namss/">USGS National Archive of Marine Seismic Surveys (NAMSS)</a></td><td>US offshore, mostly the Gulf of Mexico</td><td>about 1,000 surveys</td><td>32 TB</td><td>Public domain (US government work)</td></tr>
       <tr><td><a href="https://www.nlog.nl/">NLOG, Netherlands</a></td><td>Dutch North Sea and onshore Netherlands</td><td>324 surveys</td><td>6.4 TB</td><td>Free to use and pass on with credit to NLOG</td></tr>
-      <tr><td><a href="https://catalog.sarig.sa.gov.au/">SARIG, Government of South Australia</a></td><td>South Australia, mostly the Cooper Basin</td><td>about 160</td><td>1.8 TB</td><td>CC BY 4.0</td></tr>
+      <tr><td><a href="https://catalog.sarig.sa.gov.au/">SARIG, Government of South Australia</a></td><td>South Australia, mostly the Cooper Basin</td><td>157 surveys</td><td>1.7 TB</td><td>CC BY 4.0</td></tr>
+      <tr><td>GEUS, Geological Survey of Denmark and Greenland</td><td>Danish North Sea</td><td>74 surveys</td><td>3.2 TB</td><td>GEUS terms of use</td></tr>
+      <tr><td>BGR, Federal Institute for Geosciences and Natural Resources</td><td>German North Sea</td><td>3 surveys</td><td>0.1 TB</td><td>No license stated</td></tr>
       <tr><td>Poseidon 3D (Geoscience Australia open file)</td><td>Browse Basin, NW Shelf, Australia</td><td>full, near, mid and far stacks</td><td>0.4 TB</td><td>CC BY 3.0 AU</td></tr>
-      <tr><td>Smaller open cubes: PANGAEA P-Cable surveys, UiT DataverseNO, USGS Point Sal, Utah FORGE, Natural Resources Canada, Dutch F3, Sleipner (CO2DataShare)</td><td>Norway, Taiwan, Black Sea, Aegean, California, Utah, Canada, North Sea</td><td>about 20</td><td>0.3 TB</td><td>CC BY, CC0, public domain, OGL-Canada, CC BY-SA; Sleipner under its own CC BY-based license</td></tr>
-      <tr><td><a href="https://nopims.dmp.wa.gov.au/">NOPIMS, Geoscience Australia and NOPTA</a></td><td>Offshore Australia</td><td>234 surveys with download links</td><td>25.6 TB</td><td>Australian Government release, no license attached; free to use</td></tr>
+      <tr><td>Smaller open cubes: PANGAEA P-Cable surveys, UiT DataverseNO, USGS Point Sal, Utah FORGE, Natural Resources Canada, Equinor Volve, Dutch F3, Sleipner (CO2DataShare)</td><td>Norway, Taiwan, Black Sea, Aegean, California, Utah, Canada, North Sea</td><td>about 20</td><td>0.3 TB</td><td>CC BY, CC0, public domain, OGL-Canada, CC BY-SA; Sleipner under its own CC BY-based license</td></tr>
       <tr><td><a href="https://wapims.dmp.wa.gov.au/">WAPIMS, Western Australia</a></td><td>Canning, Perth, Carnarvon, Browse and Bonaparte basins</td><td>75 surveys</td><td>to be measured</td><td>CC BY 4.0</td></tr>
     </tbody>
   </table></div>
-  <p>About 70 TB of SEG-Y in all, plus the WAPIMS volumes still to be measured. We include full stacks, partial angle stacks and second migrations. Velocity models and pre-stack gathers are not part of this release. Sources that only allow non-commercial use or limit passing data on are left out.</p>
+  <p>About 44 TB of 3D SEG-Y in all, plus the WAPIMS volumes still to be measured. We include full stacks, partial angle stacks and second migrations. Velocity models and pre-stack gathers are not part of this release. Sources that only allow non-commercial use or limit passing data on are left out.</p>
 
   <h2>Progress</h2>
-  <p>We are downloading from the original archives now. As of 19 October 2026, 88 NAMSS surveys (1.5 TB), 116 SARIG surveys (0.6 TB) and 12 Cooper Basin 2D-cubed volumes (0.3 TB) are checked and stored: about 2.4 TB of SEG-Y.</p>
+  <p>We are downloading from the original archives now. As of 20 October 2026, 10.3 TB of SEG-Y from about 1,250 surveys is checked and stored:</p>
+  <ul>
+    <li>all 157 SARIG surveys (1.7 TB) and all 74 GEUS surveys (3.2 TB);</li>
+    <li>568 NAMSS 3D surveys (4.2 TB). We fetch the smallest first, so most of the 32 TB is still to come;</li>
+    <li>399 NAMSS 2D surveys (0.7 TB);</li>
+    <li>0.4 TB from the smaller sources: PANGAEA, BGR, IODP site surveys, Natural Resources Canada, Volve and others.</li>
+  </ul>
 
   <h2>Why</h2>
   <p>The seismic foundation models that transfer best today learned from Norwegian shelf data held in DISKOS. That data is often called free. In practice a company outside oil production pays about NOK 190,000 (about USD 20,000) a year for membership, plus data fees, and commits to three years. Released data carry no open license. No open training set of that size exists. This collection is a start on one.</p>
@@ -110,7 +117,7 @@ log/files.csv                    every file: size, CRC32, SHA-256, source URL</p
   <p>The index, metadata and well tables will get a DOI on Zenodo.</p>
 
   <h2>Coming later</h2>
-  <p>2D seismic, starting with the 582 NAMSS 2D surveys, and open well logs from other national archives, under the same checks and metadata.</p>
+  <p>2D seismic, as a second release: the NAMSS 2D surveys and IODP site surveys are downloading now. Then open well logs from other national archives, under the same checks and metadata.</p>
 
   <h2>Credit the sources</h2>
   <dl>
